@@ -1,57 +1,65 @@
-# UTS-ML-Deep-Learning-Athaya
-Proyek UTS Machine Learning &amp; Deep Learning
-**Nama:** [Athaya Naufal Pranastya]  
-**NIM:** [1202220001]  
-**Repositori:** [https://github.com/athayanaufal/UTS-ML-Deep-Learning-Athaya.git]
+# 🎓 UTS Machine Learning & Deep Learning 2025/2026
+
+Repositori ini berisi pengerjaan proyek Ujian Tengah Semester (UTS) untuk mengevaluasi dan membandingkan performa antara metode **Machine Learning Konvensional** dan **Deep Learning**.
+
+---
+
+## 👤 Profil Mahasiswa
+
+- **Nama:** Athaya Naufal Pranastya
+- **NIM:** 1202220001
+- **Repositori:** [UTS-ML-Deep-Learning-Athaya](https://github.com/athayanaufal/UTS-ML-Deep-Learning-Athaya.git)
+
+---
 
 ## 📌 Deskripsi Proyek
-Proyek ini merupakan implementasi tugas UTS untuk mata kuliah Machine Learning & Deep Learning. Fokus utama penelitian ini adalah melakukan studi komparatif antara algoritma **Machine Learning Konvensional** dan **Deep Learning** pada tiga domain data yang berbeda: Tabular, Image (Gambar), dan Text (Teks).
 
-Tujuan dari proyek ini adalah untuk menganalisis performa, efisiensi komputasi, dan kompleksitas dari kedua pendekatan tersebut di setiap kasus.
+Proyek ini melakukan studi komparatif pada tiga domain data yang berbeda (Tabular, Image, dan Text). Fokus utama adalah menganalisis:
+
+1.  **Performa:** Akurasi dan F1-Score pada setiap model.
+2.  **Efisiensi:** Waktu training dan penggunaan sumber daya.
+3.  **Kompleksitas:** Perbandingan antara _Feature Engineering_ manual vs otomatis.
+
+---
+
+## 📊 Metodologi Komparatif
+
+| Domain Data | Dataset         | ML Konvensional (Baseline)   | Deep Learning (Bonus/Advanced)          |
+| :---------- | :-------------- | :--------------------------- | :-------------------------------------- |
+| **Tabular** | Titanic         | Random Forest / XGBoost      | Multi-Layer Perceptron (MLP)            |
+| **Image**   | MNIST           | HOG Feature Extraction + SVM | Deep Convolutional Neural Network (CNN) |
+| **Text**    | Disaster Tweets | TF-IDF + Logistic Regression | Bidirectional LSTM (Bi-LSTM)            |
 
 ---
 
 ## 📂 Struktur Repositori
+
+Organisasi file dalam repositori ini dirancang agar mudah diperiksa oleh penguji:
+
 ```text
 ├── Kasus_1_Tabular/
-│   └── Kasus1.ipynb      # Klasifikasi Survival Titanic
+│   └── Kasus1.ipynb          # Prediksi Survival Penumpang Titanic
 ├── Kasus_2_Image/
-│   └── Kasus2.ipynb      # Pengenalan Angka Tulisan Tangan
+│   └── Kasus2.ipynb          # Klasifikasi Digit Tulisan Tangan
 ├── Kasus_3_Text/
-│   └── Kasus3.ipynb         # Analisis Sentimen Tweet Bencana
-├── requirements.txt                      # Daftar pustaka (dependencies)
-└── README.md                             # Panduan proyek
+│   └── Kasus3.ipynb          # Deteksi Berita Bencana via Tweet
+├── requirements.txt          # Daftar dependencies library Python
+└── README.md                 # Panduan dan dokumentasi utama
+## 📥 Pengambilan Data (Data Acquisition)
 
-🛠️ Ringkasan Metodologi
-Kasus 1: Tabular (Titanic)
-Baseline: Random Forest / XGBoost (Konvensional).
+Seluruh dataset dalam proyek ini ditarik secara otomatis menggunakan **Kaggle API**. Hal ini dilakukan untuk memastikan integritas data dan kemudahan reproduksi (reproducibility).
 
-Deep Learning: Multi-Layer Perceptron (MLP).
+### Daftar Dataset yang Digunakan:
+1. **Kasus 1:** [Titanic - Machine Learning from Disaster](https://www.kaggle.com/c/titanic)
+2. **Kasus 2:** [Digit Recognizer (MNIST)](https://www.kaggle.com/c/digit-recognizer)
+3. **Kasus 3:** [NLP with Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started)
 
-Target: Prediksi keselamatan penumpang berdasarkan fitur demografis.
-
-Kasus 2: Image (MNIST)
-Baseline: HOG Feature Extraction + SVM (Konvensional).
-
-Deep Learning: Deep Convolutional Neural Network (CNN).
-
-Target: Klasifikasi angka 0-9 dari gambar 28x28 piksel.
-
-Kasus 3: Text (Disaster Tweets)
-Baseline: TF-IDF Vectorizer + Logistic Regression (Konvensional).
-
-Deep Learning: Bidirectional Long Short-Term Memory (Bi-LSTM).
-
-Target: Mendeteksi tweet yang menginformasikan bencana nyata vs non-bencana.
-
-## Cara Menjalankan Notebook
-Notebook ini menggunakan `kagglehub` untuk mengunduh dataset secara otomatis. 
-
-### Persyaratan:
-1. Pastikan library terinstall: `pip install -r requirements.txt`
-2. **Kaggle API Credentials:**
-   Untuk menjalankan proses download otomatis, Anda perlu memasukkan API Key Kaggle Anda pada cell pertama di setiap notebook:
-   ```python
-   import os
-   os.environ['KAGGLE_USERNAME'] = "USERNAME_ANDA"
-   os.environ['KAGGLE_KEY'] = "KEY_ANDA"
+### Prosedur Otomatisasi:
+Dataset diunduh menggunakan library `kagglehub`. Jika Anda menjalankan notebook untuk pertama kali, library ini akan mendownload file `.csv` yang diperlukan ke dalam folder cache lokal atau path yang ditentukan secara dinamis.
+```
+### 2. Konfigurasi Kredensial Kaggle
+Agar fungsi `kagglehub` dapat mengakses kompetisi di Kaggle, Anda wajib menyetujui "Rules" di setiap halaman kompetisi terlebih dahulu. Kemudian, masukkan API Key Anda pada blok kode berikut di awal notebook:
+```python
+import os
+os.environ['KAGGLE_USERNAME'] = "isi_username_anda"
+os.environ['KAGGLE_KEY'] = "isi_key_api_anda"
